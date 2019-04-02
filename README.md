@@ -1,4 +1,4 @@
-# testeUnitariosUdemy
+# testeUnitarios
 Projeto para do curso de testes unitários em JAVA.
 
 Projeto de estudos usado para melhoria de abilidades na utilização de testes unitários.
