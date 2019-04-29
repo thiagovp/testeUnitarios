@@ -47,4 +47,11 @@ public class Usuario {
 		}
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Usuario [nome=").append(nome).append("]");
+		return builder.toString();
+	}
 }
