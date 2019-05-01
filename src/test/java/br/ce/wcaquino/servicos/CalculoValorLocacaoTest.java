@@ -15,7 +15,9 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameter;
 import org.junit.runners.Parameterized.Parameters;
-import org.mockito.Mockito;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
 import br.ce.wcaquino.daos.LocacaoDAO;
 import br.ce.wcaquino.entidades.Filme;
@@ -36,15 +38,16 @@ public class CalculoValorLocacaoTest {
 	@Parameter(value = 2)
 	public String cenario;
 
+	@InjectMocks
 	private LocacaoService service;
+	@Mock
+	LocacaoDAO dao;
+	@Mock
+	SPCService spc;
 
 	@Before
 	public void setup() {
-		service = new LocacaoService();
-		LocacaoDAO dao = Mockito.mock(LocacaoDAO.class);
-		service.setLocacaoDAO(dao);
-		SPCService spc = Mockito.mock(SPCService.class);
-		service.setSPCService(spc);
+		MockitoAnnotations.initMocks(this);
 
 	}
 

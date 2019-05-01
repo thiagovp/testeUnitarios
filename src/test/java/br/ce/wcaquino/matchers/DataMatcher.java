@@ -1,8 +1,8 @@
 package br.ce.wcaquino.matchers;
 
-import java.util.Calendar;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
 
 import org.hamcrest.Description;
 import org.hamcrest.TypeSafeMatcher;
@@ -18,10 +18,9 @@ public class DataMatcher extends TypeSafeMatcher<Date> {
 	}
 
 	public void describeTo(Description description) {
-		Calendar calendar = Calendar.getInstance();
-		calendar.add(Calendar.DAY_OF_MONTH, diasAdicionais);
-		String dataExtenso =  calendar.getDisplayName(Calendar.DAY_OF_MONTH, Calendar.LONG, new Locale("pt","BR"));
-		description.appendText(dataExtenso);
+		Date dataEsperada = DataUtils.obterDataComDiferencaDias(diasAdicionais);
+		DateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+		description.appendText(format.format(dataEsperada));
 
 	}
 
